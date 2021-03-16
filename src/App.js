@@ -1,19 +1,18 @@
 import Count from './components/count';
 import './App.css';
-import React from 'react';
-// import reducer from './reducers/reducer'
+import React, {useReducer} from 'react';
+import reducer from './reducers/reducer'
 
-// const initialState = {
-//   number : 0
-// }
+const initialState = {
+  number : 3
+}
 
 const Context = React.createContext("")
-const number = 3
 
 function App() {
-  // const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
-    <Context.Provider value={number}>
+    <Context.Provider value={{state, dispatch}}>
       <div className="App">
         <Count />
       </div>
