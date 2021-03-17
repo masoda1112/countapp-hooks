@@ -1,14 +1,14 @@
 // import { render } from 'react-dom'
 import { Context } from "../App"
-import React, { useContext } from 'react'
+import React from 'react'
+import DisplayCount from "./displayCount"
 
 const Count = () =>{
-  const {state, dispatch} = useContext(Context) 
-  return (
+    return (
     <Context.Consumer>
-      { ({state, dispatch}) => (
+      { ({dispatch}) => (
         <div className="count-area">
-          <div className="count-number">{state.number}</div>
+          <DisplayCount />
           <div className="increment" onClick={() => dispatch({ type : 'INCREMENT' })}>＋</div>
           <div className="decrement" onClick={() => dispatch({ type : 'DECREMENT' })}>-</div>
         </div>
